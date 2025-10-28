@@ -1,0 +1,118 @@
+{
+    "name": "Automotive Dealership",
+    "version": "1.0.0",
+    "description": "Complete automotive dealership management system for caravans, motorhomes, trailers, and campers. Includes trade-ins, deposits, floor stock, service department, and parts management.",
+    "author": "NinjaTech AI",
+    "author_url": "https://ninjatech.ai",
+    "minimum_rise_version": "3.0",
+    "plugin_type": "module",
+    "category": "business",
+    "icon": "car",
+    "settings": {
+        "module_automotive": {
+            "type": "boolean",
+            "default": true,
+            "label": "Enable Automotive Module"
+        },
+        "module_automotive_client": {
+            "type": "boolean",
+            "default": false,
+            "label": "Enable Client Portal Access"
+        },
+        "automotive_stock_number_prefix": {
+            "type": "text",
+            "default": "STK",
+            "label": "Stock Number Prefix"
+        },
+        "automotive_job_number_prefix": {
+            "type": "text",
+            "default": "SJ",
+            "label": "Service Job Number Prefix"
+        }
+    },
+    "permissions": [
+        {
+            "name": "automotive",
+            "label": "Automotive Module",
+            "options": ["all", "specific"]
+        },
+        {
+            "name": "automotive_trade_ins",
+            "label": "Trade-Ins Management",
+            "options": ["all", "specific"]
+        },
+        {
+            "name": "automotive_deposits",
+            "label": "Deposits Management",
+            "options": ["all", "specific"]
+        },
+        {
+            "name": "automotive_floor_stock",
+            "label": "Floor Stock Management",
+            "options": ["all", "specific"]
+        },
+        {
+            "name": "automotive_service",
+            "label": "Service Department",
+            "options": ["all", "specific"]
+        },
+        {
+            "name": "automotive_parts",
+            "label": "Parts Management",
+            "options": ["all", "specific"]
+        }
+    ],
+    "menu": {
+        "name": "automotive",
+        "label": "Automotive",
+        "icon": "car",
+        "position": 8,
+        "permission": "automotive",
+        "submenu": [
+            {
+                "name": "dashboard",
+                "label": "Dashboard",
+                "url": "automotive"
+            },
+            {
+                "name": "trade_ins",
+                "label": "Trade-Ins",
+                "url": "automotive_trade_ins"
+            },
+            {
+                "name": "deposits",
+                "label": "Deposits",
+                "url": "automotive_deposits"
+            },
+            {
+                "name": "floor_stock",
+                "label": "Floor Stock",
+                "url": "automotive_floor_stock"
+            },
+            {
+                "name": "service",
+                "label": "Service",
+                "url": "automotive_service"
+            },
+            {
+                "name": "parts",
+                "label": "Parts",
+                "url": "automotive_parts"
+            },
+            {
+                "name": "settings",
+                "label": "Settings",
+                "url": "automotive/settings",
+                "is_admin_only": true
+            }
+        ]
+    },
+    "custom_field_contexts": [
+        "automotive_trade_ins",
+        "automotive_deposits",
+        "automotive_floor_stock",
+        "automotive_service_appointments",
+        "automotive_service_jobs",
+        "automotive_parts"
+    ]
+}
