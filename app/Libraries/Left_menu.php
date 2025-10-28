@@ -211,6 +211,22 @@ class Left_menu {
                 $sidebar_menu["expenses"] = array("name" => "expenses", "url" => "expenses", "class" => "arrow-right-circle");
             }
 
+            // Automotive Module
+            if (get_setting("module_automotive") == "1") {
+                $automotive_submenu = array();
+                
+                $automotive_submenu["automotive_dashboard"] = array("name" => "automotive_dashboard", "url" => "automotive", "class" => "monitor");
+                $automotive_submenu["trade_ins"] = array("name" => "trade_ins", "url" => "automotive_trade_ins", "class" => "refresh-cw");
+                $automotive_submenu["deposits"] = array("name" => "deposits", "url" => "automotive_deposits", "class" => "dollar-sign");
+                $automotive_submenu["floor_stock"] = array("name" => "floor_stock", "url" => "automotive_floor_stock", "class" => "package");
+                $automotive_submenu["service_appointments"] = array("name" => "service_appointments", "url" => "automotive_service/appointments", "class" => "calendar");
+                $automotive_submenu["service_jobs"] = array("name" => "service_jobs", "url" => "automotive_service/jobs", "class" => "tool");
+                $automotive_submenu["parts_inventory"] = array("name" => "parts_inventory", "url" => "automotive_parts", "class" => "box");
+                $automotive_submenu["parts_sales"] = array("name" => "parts_sales", "url" => "automotive_parts/sales", "class" => "shopping-bag");
+                
+                $sidebar_menu["automotive"] = array("name" => "automotive", "class" => "truck", "submenu" => $automotive_submenu);
+            }
+
             $sidebar_menu["reports"] = array(
                 "name" => "reports",
                 "url" => "reports/index",
