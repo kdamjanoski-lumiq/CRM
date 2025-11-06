@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers;
+namespace Automotive\Controllers;
 
 class Automotive_trade_ins extends Security_Controller {
 
@@ -28,7 +28,7 @@ class Automotive_trade_ins extends Security_Controller {
             array("id" => "completed", "text" => app_lang("completed")),
             array("id" => "rejected", "text" => app_lang("rejected"))
         ));
-        return $this->template->rander("automotive/trade_ins/index", $view_data);
+        return $this->template->rander("Automotive\\Views\\automotive/trade_ins/index", $view_data);
     }
 
     /* load trade-in add/edit modal */
@@ -64,7 +64,7 @@ class Automotive_trade_ins extends Security_Controller {
         // Get custom fields
         $view_data["custom_fields"] = $this->Custom_fields_model->get_combined_details("automotive_trade_ins", $trade_in_id, $this->login_user->is_admin, $this->login_user->user_type)->getResult();
 
-        return $this->template->view('automotive/trade_ins/modal_form', $view_data);
+        return $this->template->view('Automotive\\Views\\automotive/trade_ins/modal_form', $view_data);
     }
 
     /* save trade-in */
@@ -242,7 +242,7 @@ class Automotive_trade_ins extends Security_Controller {
     }
 
     /* check module availability */
-    protected function check_module_availability($module_name) {
+    private function check_module_availability($module_name) {
         if (!get_setting($module_name)) {
             app_redirect("forbidden");
         }

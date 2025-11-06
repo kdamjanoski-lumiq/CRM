@@ -248,7 +248,7 @@ class Automotive_deposits extends Security_Controller {
     }
 
     /* check module availability */
-    private function check_module_availability($module_name) {
+    protected function check_module_availability($module_name) {
         if (!get_setting($module_name)) {
             app_redirect("forbidden");
         }

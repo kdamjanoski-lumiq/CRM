@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers;
+namespace Automotive\Controllers;
 
 class Automotive extends Security_Controller {
 
@@ -19,13 +19,13 @@ class Automotive extends Security_Controller {
             }
 
             $view_data['page_type'] = "full";
-            return $this->template->rander("automotive/index", $view_data);
+            return $this->template->rander("Automotive\\Views\\automotive/index", $view_data);
         } else {
             // Client view
             $view_data["client_info"] = $this->Clients_model->get_one($this->login_user->client_id);
             $view_data['client_id'] = $this->login_user->client_id;
             $view_data['page_type'] = "full";
-            return $this->template->rander("automotive/client_view", $view_data);
+            return $this->template->rander("Automotive\\Views\\automotive/client_view", $view_data);
         }
     }
 
@@ -38,7 +38,7 @@ class Automotive extends Security_Controller {
         }
 
         $view_data['page_type'] = "full";
-        return $this->template->rander("automotive/settings/index", $view_data);
+        return $this->template->rander("Automotive\\Views\\automotive/settings/index", $view_data);
     }
 
     /* get dashboard statistics */
@@ -135,7 +135,7 @@ class Automotive extends Security_Controller {
     }
 
     /* check module availability */
-    protected function check_module_availability($module_name) {
+    private function check_module_availability($module_name) {
         if (!get_setting($module_name)) {
             app_redirect("forbidden");
         }
